@@ -1,0 +1,15 @@
+/* body{background:#cde;} */
+.items{
+	-webkit-transition:2.5s;
+	transition:2.5s;
+}
+.items.ng-enter{  opacity:0; width:150px;}
+.items.ng-enter.ng-enter-active{  } 
+
+.items.ng-leave{ }
+.items.ng-leave.ng-leave-active{ opacity:0; width:150px;} 
+
+#downlBlock.ng-show{ width:150px;}
+#downlBlock.ng-show.ng-leave-active{ opacity:0; width:150px;} 
+
+#formZak input.ng-valid{background-color:#D3F0FF;}

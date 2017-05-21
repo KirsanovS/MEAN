@@ -1,0 +1,62 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="style/style.css">
+	 <link rel="stylesheet" href="style/animateStyle.css">
+		<!-- for scroll -->
+	<link rel="stylesheet" href="scroll/jquery.mCustomScrollbar.css">
+	<script src="scroll/jquery.js"></script>
+	<script src="scroll/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="scroll/setScroll.js"></script>		
+	<style> html, body{ height: 100%; } </style>
+	 
+</head>
+<body>
+
+<div ng-app="regApp"  > 
+	 <div ng-controller="reg" ng-init="n=5" >
+ 
+		<div id="header">
+			 <label id="labeOrdered">Ordered by</label>
+			 <select name="Ordered" id="order"  ng-model="order">
+				<option value="likesPost" >likes</option>
+				<option value="reposts" >Reposts</option>
+				
+			</select>
+			
+			<label  >Sort post by group name</label>
+				<select name="groupName" id="order"  ng-model="groupName">
+					<option value="{{groupName}}" ng-repeat="groupName in groupNames"  >{{groupName}}</option>
+				</select>
+				
+			 <div id="showButton"   ng-click=" !hidden? hidden = 1: hidden = 0" >Download group</div>
+		</div>
+		<div id="downlBlock" ng-show="hidden" >
+			<form id='formZak' name="myForm" action="">
+				<label  >Name group</label>
+				<input name="nameGroup" type="text" ng-model="sendObj.name"   required />
+				<label  >Quantity posts</label>
+				<input name="quantity" type="number" ng-model="sendObj.quantity"   required />
+				<input   type="button" value="Отправить" ng-click="sendForm(sendObj, myForm)" ng-disabled="myForm.$invalid" />
+			</form>
+		</div>
+		 
+		<div ng-include ="returnURL()" > </div>
+ 
+		
+
+		 
+	 </div>	
+	 
+</div>
+	
+</body>
+ 
+<script src="angular/angular.js"></script>
+<script src="js/main.js"></script>
+<script src="services/cervicesItems.js"></script>
+<script src="angular/angular-animate.js"></script>
+ 
+</html>
